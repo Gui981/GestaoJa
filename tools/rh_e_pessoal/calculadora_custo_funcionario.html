@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Custo de Funcionário - GestãoJá</title>
-</head>
+<head><meta charset="UTF-8"><title>Custo de Funcionário</title></head>
 <body>
-    <h1>Custo de Funcionário</h1>
-    <p>Esta é uma versão simples da ferramenta: <strong>Custo de Funcionário</strong>.</p>
-    <p>[Simulação de funcionalidade aqui]</p>
-    <p><a href="../../index.html">Voltar ao início</a></p>
+  <h1>Custo de Funcionário</h1>
+  <p>Salário bruto: <input type="number" id="salario"></p>
+  <button onclick="calcular()">Calcular Custo Total</button>
+  <p id="resultado"></p>
+  <script>
+    function calcular() {
+      let salario = parseFloat(document.getElementById('salario').value);
+      let encargos = salario * 0.37; // Exemplo: 37% encargos totais
+      let total = salario + encargos;
+      document.getElementById('resultado').innerText = "Custo total: R$ " + total.toFixed(2);
+    }
+  </script>
 </body>
 </html>
