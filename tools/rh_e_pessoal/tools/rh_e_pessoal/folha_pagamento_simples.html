@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta charset="UTF-8"><title>Folha de Pagamento Simples</title></head>
+<body>
+  <h1>Folha de Pagamento Simples</h1>
+  <p>Salário base: <input type="number" id="salario"></p>
+  <p>Horas extras: <input type="number" id="extras"></p>
+  <p>Descontos: <input type="number" id="descontos"></p>
+  <button onclick="calcular()">Gerar Folha</button>
+  <p id="resultado"></p>
+  <script>
+    function calcular() {
+      let salario = parseFloat(document.getElementById('salario').value);
+      let extras = parseFloat(document.getElementById('extras').value);
+      let descontos = parseFloat(document.getElementById('descontos').value);
+      let liquido = salario + extras - descontos;
+      document.getElementById('resultado').innerText = "Salário líquido: R$ " + liquido.toFixed(2);
+    }
+  </script>
+</body>
+</html>

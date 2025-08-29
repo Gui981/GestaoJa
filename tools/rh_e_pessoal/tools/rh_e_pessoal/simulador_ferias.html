@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta charset="UTF-8"><title>Simulador de Férias</title></head>
+<body>
+  <h1>Simulador de Férias</h1>
+  <p>Salário mensal: <input type="number" id="salario"></p>
+  <button onclick="simular()">Simular Férias</button>
+  <p id="resultado"></p>
+  <script>
+    function simular() {
+      let salario = parseFloat(document.getElementById('salario').value);
+      let ferias = salario + (salario / 3);
+      document.getElementById('resultado').innerText = "Valor a receber: R$ " + ferias.toFixed(2);
+    }
+  </script>
+</body>
+</html>

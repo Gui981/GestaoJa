@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta charset="UTF-8"><title>Controle de Ponto</title></head>
+<body>
+  <h1>Controle de Ponto</h1>
+  <p>Entrada: <input type="time" id="entrada"></p>
+  <p>Saída: <input type="time" id="saida"></p>
+  <button onclick="calcular()">Calcular Horas Trabalhadas</button>
+  <p id="resultado"></p>
+  <script>
+    function calcular() {
+      let entrada = document.getElementById('entrada').value;
+      let saida = document.getElementById('saida').value;
+      let inicio = new Date("1970-01-01T" + entrada + ":00");
+      let fim = new Date("1970-01-01T" + saida + ":00");
+      let horas = (fim - inicio) / (1000 * 60 * 60);
+      document.getElementById('resultado').innerText = "Horas trabalhadas: " + horas.toFixed(2);
+    }
+  </script>
+</body>
+</html>
