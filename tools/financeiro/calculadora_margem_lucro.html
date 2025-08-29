@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Calculadora de Margem de Lucro - GestãoJá</title>
+  <meta charset="UTF-8">
+  <title>Calculadora de Margem de Lucro</title>
 </head>
 <body>
-    <h1>Calculadora de Margem de Lucro</h1>
-    <p>Esta é uma versão simples da ferramenta: <strong>Calculadora de Margem de Lucro</strong>.</p>
-    <p>[Simulação de funcionalidade aqui]</p>
-    <p><a href="../../index.html">Voltar ao início</a></p>
+  <h1>Calculadora de Margem de Lucro</h1>
+  <p>Preço de venda: <input type="number" id="preco_venda"></p>
+  <p>Custo do produto: <input type="number" id="custo"></p>
+  <button onclick="calcularMargem()">Calcular</button>
+  <p id="resultado"></p>
+  <script>
+    function calcularMargem() {
+      let preco = parseFloat(document.getElementById('preco_venda').value);
+      let custo = parseFloat(document.getElementById('custo').value);
+      let margem = ((preco - custo) / preco) * 100;
+      document.getElementById('resultado').innerText = "Margem de lucro: " + margem.toFixed(2) + "%";
+    }
+  </script>
 </body>
 </html>

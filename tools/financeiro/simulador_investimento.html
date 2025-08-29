@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Simulador de Investimento - GestãoJá</title>
-</head>
+<head><meta charset="UTF-8"><title>Simulador de Investimento</title></head>
 <body>
-    <h1>Simulador de Investimento</h1>
-    <p>Esta é uma versão simples da ferramenta: <strong>Simulador de Investimento</strong>.</p>
-    <p>[Simulação de funcionalidade aqui]</p>
-    <p><a href="../../index.html">Voltar ao início</a></p>
+  <h1>Simulador de Investimento</h1>
+  <p>Valor inicial: <input type="number" id="inicial"></p>
+  <p>Contribuição mensal: <input type="number" id="mensal"></p>
+  <p>Taxa mensal (%): <input type="number" id="taxa"></p>
+  <p>Período (meses): <input type="number" id="periodo"></p>
+  <button onclick="simular()">Simular</button>
+  <p id="resultado"></p>
+  <script>
+    function simular() {
+      let inicial = parseFloat(document.getElementById('inicial').value);
+      let mensal = parseFloat(document.getElementById('mensal').value);
+      let taxa = parseFloat(document.getElementById('taxa').value) / 100;
+      let meses = parseInt(document.getElementById('periodo').value);
+      let total = inicial * Math.pow(1 + taxa, meses);
+      for (let i = 1; i <= meses; i++) {
+        total += mensal * Math.pow(1 + taxa, meses - i);
+      }
+      document.getElementById('resultado').innerText = "Total acumulado: R$ " + total.toFixed(2);
+    }
+  </script>
 </body>
 </html>
